@@ -1,0 +1,107 @@
+<html>
+    <title>details</title>
+    <script src="https://kit.fontawesome.com/bb4b230bb4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/details.css">
+    <body>
+        <!--To show habit details-->
+        <div id="details_container">
+        <div id="dicontainer">
+
+            <div id="conts">
+                <strong>Habit Name :</strong>
+                <p><%=details.habit%></p>
+            </div>
+            <div id="conts">
+                <strong>Description :</strong>
+                <p><%=details.description%></p>
+            </div>
+            <div id="conts">
+                <strong>Start Date:</strong>
+                <p><%= details.startDate.getDay()%>/</p>
+                    
+                <p><%= details.startDate.getMonth()%>/</p>
+
+                <p><%= details.startDate.getFullYear()%></p>
+            </div>
+            <div id="conts">
+                <strong>Streak :</strong>
+                <%let streak=0;%>
+                <%for(let i=6;i>=0;i--){%>
+                    
+                    <%if(details.status[i]=="done"){%>
+                        
+                       <% streak++;%>
+
+                        <%}else{%>
+                            
+                            <%break;%>
+                            
+                            <%}%>
+                    
+                    <%}%>
+
+                    <p><%= streak %></p>
+            </div>
+            <a href="/"><button style="margin-top:10px;">Home</button></a>
+        </div>
+
+        <!--To save the changes-->
+        <form action="/save/<%=details._id%>" method="POST"><table>
+            <tr>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        <%for(let j=6;j>=0;j--){%>
+            
+                <tr>
+                <%if(j==0){%>
+                   <td> <span>Today</span></td>
+                    
+                    <%}else{%>
+                        
+                        <% let d = new Date(date - j*24*60*60*1000); %>
+                    <td> <span><%= d.getDate()%>/</span><span><%=d.getMonth()%></span></td>
+                        
+                    <%}%>
+
+                <% if(details.status[6-j]=="empty") {%>
+                    
+                    
+                <td id="img-center"><i class="fa fa-exclamation" onclick="change(this)" id="none"  aria-hidden="true" style="background-color: orange;">
+                    <input type="text" value="<%=details.status[6-j]%>"  name="<%=6-j%>" style="display:none">
+                    </i></td>
+
+                    <%}%>
+
+                    <% if(details.status[6-j]=="done") {%>
+                    
+                    
+                    <td id="img-center"> <i class="fa fa-check" onclick="change(this)" id="none"  aria-hidden="true" style="background-color: green;">
+                        <input type="text" value="<%=details.status[6-j]%>"  name="<%=6-j%>" style="display:none">
+                        </i></td>
+    
+                     <%}%>
+
+                     <% if(details.status[6-j]=="notDone") {%>
+                    
+                    
+                     <td id="img-center"> <i class="fa fa-times" onclick="change(this)" id="none"  aria-hidden="true" style="background-color: red;">
+                        <input type="text"  value="<%=details.status[6-j]%>"  name="<%=6-j%>" style="display:none">
+                        </i></td>
+    
+                     <%}%>
+                    </tr>
+                    
+        
+            <%}%></table>
+            <button type="submit">Save</button>
+             </form>  
+            </div>
+
+
+            <script type="text/javascript" src="/jss/script.js">
+                
+            </script>
+    </body>
+</html>

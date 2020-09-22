@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title><% title%></title>
+         <link rel="stylesheet" href="/css/home.css" >
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+            crossorigin="anonymous"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+
+    <body>
+       <!--Form to enter the habit-->
+       <div id="enter_container">
+         <h1>Enter your Habit</h1>
+         <form action="create-habit" method="POST" id="habit-form">
+            <label for="hn"><h4>Habit Name : </h4></label>
+            <input type="text" name="habit_name" id="hn">
+            <label for="desc"><h4>Description : </h4></label>
+            <textarea name="description" id="desc" rows="3" cols="30"></textarea>
+            <label for="date"><h4>Start Date : </h4></label>
+            <input type="date" name = "date" id="date">
+            <button type="submit">Add habit</button>
+         </form>
+      </div>
+      <!--To show the habit-->
+       <div id="loop_container">
+         <% for(let i=0; i<habit.length;i++) {%>
+             
+            <div class="ins">
+               <div id="inscon">
+               <h3><%= habit[i].habit %></h3>
+               <%for(let j in habit[i].status) {%>
+                  
+                  <%if( habit[i].status[j] == "empty"){%>
+                     
+                     <div id="circus" style="background-color:orange;"></div>
+
+                     <%} else if(habit[i].status[j] == "done"){%>
+                        
+                        <div id="circus" style="background-color:green;"></div>
+                        
+                        <%} else if(habit[i].status[j] == "notDone"){%>
+                        
+                           <div id="circus" style="background-color:red;"></div>
+                           
+                           <%}%>
+
+
+                  <%} %>
+               </div>
+               <div id="contains_button">
+                  <a href="/delete-habit/<%= habit[i]._id%>" ><button>Delete</button></a>
+                  <a href="/details/<%= habit[i]._id%>"><button >Show details</button></a>
+               </div>
+            </div>
+            
+            <%} %>
+
+         </div>
+    
+    </body>
+</html>

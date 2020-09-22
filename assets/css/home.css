@@ -1,0 +1,87 @@
+body{
+    background-color: pink;
+}
+
+/*form styles*/
+#enter_container{
+    padding:3px;
+}
+
+#enter_container h1{
+    text-align: center;
+}
+
+#enter_container form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#enter_container form label{
+    margin-right: 10px;
+}
+
+#enter_container form input{
+    margin-right: 40px;
+}
+
+#enter_container form textarea{
+    margin-right: 40px;
+}
+
+/*habits styles*/
+#loop_container{
+    padding:10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ins{
+    position: relative;
+    background-color:rgb(100, 164, 190);
+    display: flex;
+    align-items: center;
+    max-width: 80vw;
+    margin-left: 8%;
+    border-radius: 10px;
+    transition: 0.5s;
+    margin-top: 10px;
+    padding:5px;
+}
+
+.ins button{
+   height: 40px;
+   width: auto;
+   margin-right: 10px;
+   text-align: right;
+}
+
+#contains_button{
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: auto;
+    background-color: inherit;
+}
+#inscon{
+    display: flex;
+    margin-right: 20px;
+    margin-left:30px;
+}
+
+#inscon h3{
+    margin-right: 10px;
+}
+
+#circus{
+   height: 10px;
+   width: 10px;
+   margin-top: 25px;
+   margin-left: 10px;
+   border-radius: 5px;
+}
+

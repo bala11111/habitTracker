@@ -6,7 +6,7 @@
   <li>Create</li>
   <li>Delete</li>
   <li>Maintain</li>
-</ul> the status the habits.
+</ul> the status the habits. <br> <br>
 
 ---->  We have used the MVC structure to build the website. <br>
 ---->  We have used EJS in the views part of the website. <br>
@@ -22,3 +22,12 @@
   <li> /details/:id ---> To show the details of that particular habit </li>
   <li> /save/:id ---> To update the status of the habit </li>
 </ol> 
+
+<h3>The habit details basically contains the following</h3>
+<ul>
+  <li> Habit name</li>
+  <li> Description about the habit </li>
+  <li> The Start date of that habit</li>
+  <li> The status of that particular habit of the past 7 days</li>
+  <li> Streak during the past 7 days</li>
+</ul>
